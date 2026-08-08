@@ -50,7 +50,7 @@ export default function Navbar() {
         className={`grid overflow-hidden border-charcoal/10 transition-[grid-template-rows,opacity,border-color] duration-300 ${isScrolled ? "grid-rows-[0fr] border-transparent opacity-0" : "grid-rows-[1fr] border-b opacity-100"}`}
       >
         <div className="min-h-0">
-          <div className="container flex min-h-10 flex-wrap items-center justify-center gap-x-5 gap-y-1 py-2 text-[10px] font-medium tracking-[0.06em] text-muted sm:justify-between sm:text-[11px]">
+          {/* <div className="container flex min-h-10 flex-wrap items-center justify-center gap-x-5 gap-y-1 py-2 text-[10px] font-medium tracking-[0.06em] text-muted sm:justify-between sm:text-[11px]">
             <div className="flex items-center gap-2">
               <SocialIcon label="Facebook">
                 <svg
@@ -108,7 +108,7 @@ export default function Navbar() {
                 hello@orisyn.com
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
