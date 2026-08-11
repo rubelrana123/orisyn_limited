@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navItems = [
-  { label: "Home", href: "#home" },
+  { label: "Home", href: "/" },
   { label: "About us", href: "#about" },
   { label: "Our services", href: "#services" },
   { label: "Pages", href: "#pages", submenu: true },
