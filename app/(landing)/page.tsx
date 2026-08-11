@@ -1,13 +1,21 @@
-import EngineeringServices from "@/components/home/EngineeringServices";
+import ClientsPartners from "@/components/home/ClientsPartners";
+import CompanyOverview from "@/components/home/CompanyOverview";
+import CoreWork from "@/components/home/CoreWork";
 import HeroSec from "@/components/home/HeroSec";
+import MissionVisionValues from "@/components/home/MissionVisionValues";
 import ServicesTicker from "@/components/home/ServicesTicker";
+import ServicesShowcase from "@/components/home/ServicesShowcase";
 
 export default function Home() {
   return (
     <main>
       <HeroSec />
       <ServicesTicker />
-      <EngineeringServices />
+      <CompanyOverview />
+      <CoreWork />
+      <ServicesShowcase />
+      <MissionVisionValues />
+      <ClientsPartners />
     </main>
   );
 }

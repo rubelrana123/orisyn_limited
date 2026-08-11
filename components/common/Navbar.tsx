@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -13,27 +14,9 @@ const navItems = [
 
 type NavLabel = (typeof navItems)[number]["label"];
 
-function SocialIcon({
-  children,
-  label,
-}: {
-  children: React.ReactNode;
-  label: string;
-}) {
-  return (
-    <a
-      href="#"
-      aria-label={label}
-      className="grid size-5 place-items-center text-charcoal transition-colors duration-200 hover:text-primary"
-    >
-      {children}
-    </a>
-  );
-}
-
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeItem, setActiveItem] = useState<NavLabel>("Pages");
+  const [activeItem, setActiveItem] = useState<NavLabel>("Home");
 
   useEffect(() => {
     const updateHeader = () => setIsScrolled(window.scrollY > 24);
@@ -115,28 +98,18 @@ export default function Navbar() {
       <div className="container flex h-[72px] items-center justify-between gap-5 sm:h-20 lg:h-[88px] lg:gap-8">
         <Link
           href="/"
-          className="flex self-stretch shrink-0 items-center gap-2.5 pr-3 sm:gap-3 sm:pr-6 lg:min-w-[250px] lg:border-r lg:border-charcoal/10 lg:pr-10"
+          className="group flex self-stretch shrink-0 items-center pr-3 sm:pr-6 lg:min-w-[250px] lg:border-r lg:border-charcoal/10 lg:pr-10"
           aria-label="Orisyn home"
         >
-          <svg
-            viewBox="0 0 48 48"
-            aria-hidden="true"
-            className="size-9 sm:size-10"
-          >
-            <path
-              d="M5 38V25h8v13M13 38V17h9v21M22 38V9h10v29"
-              fill="none"
-              stroke="var(--color-primary)"
-              strokeWidth="2"
-            />
-            <path
-              d="M28 7h6a11 11 0 0 1 0 22h-5v9H17V17h11V7Zm1 10v8h5a4 4 0 1 0 0-8h-5Z"
-              fill="var(--color-charcoal)"
-            />
-          </svg>
-          <span className="font-display text-[1.7rem] leading-none tracking-[-0.02em] sm:text-3xl">
-            Orisyn
-          </span>
+          <Image
+            src="/brand/orisyn-logo.png"
+            alt="Orisyn Limited"
+            width={1748}
+            height={382}
+            priority
+            sizes="(max-width: 640px) 170px, 220px"
+            className="h-auto w-[170px] transition-[transform,filter] duration-300 group-hover:scale-[1.025] group-hover:brightness-105 sm:w-[205px] lg:w-[220px]"
+          />
         </Link>
 
         <nav
@@ -149,27 +122,24 @@ export default function Navbar() {
               href={item.href}
               onClick={() => setActiveItem(item.label)}
               aria-current={activeItem === item.label ? "page" : undefined}
-              className={`flex items-center gap-1.5 py-3 text-xs font-semibold uppercase tracking-[0.02em] transition-colors duration-200 hover:text-primary ${activeItem === item.label ? "text-charcoal" : "text-charcoal/90"}`}
+              className={`relative py-3 text-xs font-semibold uppercase tracking-[0.04em] transition-colors duration-200 after:absolute after:bottom-1.5 after:left-0 after:h-0.5 after:w-full after:origin-left after:bg-primary after:transition-transform after:duration-200 ${activeItem === item.label ? "text-primary after:scale-x-100" : "text-charcoal/90 after:scale-x-0 hover:text-primary hover:after:scale-x-100"}`}
             >
               {item.label}
-              {activeItem === item.label && (
-                <svg
-                  viewBox="0 0 12 8"
-                  aria-hidden="true"
-                  className="w-2.5 fill-none stroke-primary stroke-2 transition-transform duration-200"
-                >
-                  <path d="m1 1 5 5 5-5" />
-                </svg>
-              )}
             </a>
           ))}
         </nav>
 
         <a
           href="#contact"
-          className="ml-2 hidden items-center justify-center rounded-full border border-primary bg-primary px-7 py-3 text-xs font-semibold uppercase tracking-[0.04em] text-white shadow-sm transition-colors duration-200 hover:border-charcoal hover:bg-charcoal hover:text-white active:bg-charcoal/90 lg:inline-flex"
+          className="group ml-2 hidden items-center justify-center gap-2.5 overflow-hidden rounded-full border border-primary bg-primary px-7 py-3 text-xs font-semibold uppercase tracking-[0.06em] text-white shadow-sm transition-[background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary-light hover:bg-primary-light hover:shadow-[0_10px_24px_rgba(255,100,46,0.28)] active:translate-y-0 active:bg-primary lg:inline-flex"
         >
           Free consult
+          <span
+            className="grid size-6 place-items-center rounded-full bg-white text-charcoal transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            aria-hidden="true"
+          >
+            &#8599;
+          </span>
         </a>
 
         <details className="group relative lg:hidden">
@@ -193,25 +163,24 @@ export default function Navbar() {
                 href={item.href}
                 onClick={() => setActiveItem(item.label)}
                 aria-current={activeItem === item.label ? "page" : undefined}
-                className={`flex items-center justify-between rounded px-4 py-3 text-sm font-semibold uppercase transition-colors duration-200 hover:bg-background hover:text-primary ${activeItem === item.label ? "text-primary" : "text-charcoal"}`}
+                className={`rounded px-4 py-3 text-sm font-semibold uppercase transition-[background-color,color,padding] duration-200 hover:bg-background hover:pl-5 hover:text-primary ${activeItem === item.label ? "bg-primary/10 text-primary" : "text-charcoal"}`}
               >
                 {item.label}
-                {activeItem === item.label && (
-                  <svg
-                    viewBox="0 0 12 8"
-                    aria-hidden="true"
-                    className="w-2.5 fill-none stroke-primary stroke-2"
-                  >
-                    <path d="m1 1 5 5 5-5" />
-                  </svg>
-                )}
               </a>
             ))}
             <a
               href="#contact"
-              className="relative mt-2 overflow-hidden rounded border border-primary bg-primary px-4 py-3 text-center text-sm font-semibold uppercase tracking-[0.03em] text-white transition-colors duration-300 after:absolute after:inset-0 after:origin-left after:scale-x-0 after:rounded-[inherit] after:bg-charcoal after:transition-transform after:duration-300 after:ease-out hover:border-charcoal hover:after:scale-x-100"
+              className="group relative mt-2 overflow-hidden rounded border border-primary bg-primary px-4 py-3 text-center text-sm font-semibold uppercase tracking-[0.04em] text-white transition-[background-color,border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-primary-light hover:bg-primary-light hover:shadow-[0_10px_24px_rgba(255,100,46,0.25)]"
             >
-              <span className="relative z-10">Free consult</span>
+              <span className="relative z-10 inline-flex items-center gap-2">
+                Free consult
+                <span
+                  className="grid size-6 place-items-center rounded-full bg-white text-charcoal transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  aria-hidden="true"
+                >
+                  &#8599;
+                </span>
+              </span>
             </a>
           </nav>
         </details>

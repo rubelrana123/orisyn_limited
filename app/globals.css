@@ -2,6 +2,7 @@
 
 :root {
   --color-primary: #ff642e;
+  --color-primary-light: #ff8359;
   --color-secondary: #2f98c8;
   --color-accent: #ffc24d;
   --color-cta: #d5262b;
@@ -23,6 +24,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--color-primary);
+  --color-primary-light: var(--color-primary-light);
   --color-secondary: var(--color-secondary);
   --color-accent: var(--color-accent);
   --color-cta: var(--color-cta);
@@ -120,6 +122,20 @@ select {
   animation-play-state: paused;
 }
 
+@keyframes clients-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.clients-track {
+  animation: clients-scroll 42s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -128,5 +144,9 @@ select {
   .ticker-track {
     animation: none;
     transform: none;
+  }
+
+  .clients-track {
+    animation: none;
   }
 }

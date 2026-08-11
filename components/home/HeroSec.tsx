@@ -99,11 +99,11 @@ export default function HeroSec() {
           <div className="mt-6 flex w-fit flex-col items-start lg:mt-7">
             <a
               href="#contact"
-              className="inline-flex items-center gap-3 rounded-full border border-primary bg-primary px-5 py-2.5 text-[0.7rem] font-bold uppercase tracking-[0.08em] text-white shadow-sm transition-colors duration-200 hover:border-charcoal hover:bg-charcoal sm:px-6 sm:py-3 sm:text-xs"
+              className="group inline-flex items-center gap-3 rounded-full border border-primary bg-primary px-5 py-2.5 text-[0.7rem] font-bold uppercase tracking-[0.08em] text-white shadow-sm transition-[background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary-light hover:bg-primary-light hover:shadow-[0_10px_24px_rgba(255,100,46,0.28)] sm:px-6 sm:py-3 sm:text-xs"
             >
               Start a project
               <span
-                className="grid size-7 place-items-center rounded-full bg-white text-charcoal"
+                className="grid size-7 place-items-center rounded-full bg-white text-charcoal transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 aria-hidden="true"
               >
                 &#8599;
