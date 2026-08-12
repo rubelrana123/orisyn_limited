@@ -5,6 +5,7 @@ import HeroSec from "@/components/home/HeroSec";
 import MissionVisionValues from "@/components/home/MissionVisionValues";
 import ServicesTicker from "@/components/home/ServicesTicker";
 import ServicesShowcase from "@/components/home/ServicesShowcase";
+import BoardOfDirector from "@/components/home/BoardOfDirector";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <CoreWork />
       <ServicesShowcase />
       <MissionVisionValues />
+      <BoardOfDirector/>
       <ClientsPartners />
     </main>
   );
