@@ -1,116 +1,160 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const directors = [
   {
     id: 1,
-    name: "Md Ahosaduj Jaman",
-    role: "Chairman",
-    image: "/director/Chairman_Md Ahosaduj Jaman.jpeg",
-  },
-  {
-    id: 2,
     name: "Md Mehedi Hasan",
     role: "Managing Director",
     image: "/director/md-mehedi-hasan-white.png",
+    href: "/about/md-mehedi-hasan",
+    description:
+      "Leading Orisyn Limited with a practical vision for dependable engineering, responsible growth, and lasting value for every client.",
+    details:
+      "His leadership keeps the company focused on quality, accountability, and practical solutions that serve clients for the long term.",
   },
   {
-    id: 3,
-    name: "M. Abul Hannan (Retd)",
-    role: "Director",
-    image: "/director/major-md-abul-hannan-white.png",
-  },
-  // {
-  //   id: 4,
-  //   name: "Jibon Roy",
-  //   role: "Director Clothing",
-  //   image: "/director/jibon-roy-white.png",
-  // },
-  {
-    id: 5,
+    id: 2,
     name: "Sabbir Ahmed",
     role: "Director",
-   image: "/director/md-mehedi-hasan-white.png",
+    image: "/director/sabbirAhmed.jpeg",
+    href: "/about/sabbir-ahmed",
+
+    description:
+      "Supporting the company’s strategic direction with a focus on strong partnerships, disciplined delivery, and sustainable progress.",
+    details:
+      "He contributes to business planning and delivery oversight, helping teams maintain clear priorities and dependable standards.",
   },
-  // {
-  //   id: 6,
-  //   name: "Gazi Abu Raihan",
-  //   role: "Director",
-  //   image: "/director/gazi-abu-raihan-white.png",
-  // },
-  // {
-  //   id: 7,
-  //   name: "Md Rakib Howlader",
-  //   role: "Director",
-  //   image: "/director/Director_Md Rakib Howlader.jpeg",
-  // },
 ] as const;
 
 export default function BoardOfDirector() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeDirector = directors[activeIndex];
+
+  const selectDirector = (index: number) => {
+    setActiveIndex(index);
+  };
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
+
+    if (reducedMotion.matches) return;
+
+    const interval = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % directors.length);
+    }, 6500);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="leadership"
       aria-labelledby="board-heading"
-      className="relative overflow-hidden bg-background py-20 sm:py-24 lg:py-32"
+      className="relative overflow-hidden bg-background py-16 sm:py-20 lg:py-28"
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-10 overflow-hidden text-center font-display text-[clamp(4.5rem,14vw,12rem)] leading-none whitespace-nowrap uppercase text-charcoal/[0.035]"
-      >
-        Board of Directors
-      </div>
+        className="absolute -right-28 top-1/2 size-96 -translate-y-1/2 rounded-full border-[5rem] border-primary/[0.045] sm:size-[34rem]"
+      />
 
       <div className="container relative">
-        <header className="max-w-3xl">
-          <div className="mb-5 flex items-center gap-3">
-            <span className="h-1 w-8 bg-primary" aria-hidden="true" />
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary sm:text-sm">
-              Leadership team
-            </p>
-          </div>
-          <h2
-            id="board-heading"
-            className="text-[clamp(3rem,7vw,6.5rem)] uppercase text-charcoal"
+        <div className="grid items-center gap-14 lg:grid-cols-[0.88fr_1.12fr] lg:gap-10 xl:gap-20">
+          <div
+            className="order-2 lg:order-1"
+            aria-live="polite"
+            aria-atomic="true"
           >
-            Board of Directors
-          </h2>
-          <p className="mt-6 max-w-2xl text-sm leading-7 text-muted sm:text-base sm:leading-8">
-            Experienced leadership guiding Orisyn Limited with clear direction,
-            technical insight, and a commitment to dependable results.
-          </p>
-        </header>
+            <div className="flex items-center gap-3">
+              <span className="h-1 w-8 bg-primary" aria-hidden="true" />
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary sm:text-sm">
+                Leadership team
+              </p>
+            </div>
 
-        <div className="mt-12 grid gap-x-6 gap-y-12 sm:mt-16 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
-          {directors.map((director, index) => (
-            <article key={director.id}>
-              <div className="relative aspect-[4/5] overflow-hidden bg-charcoal/5">
-                <Image
-                  src={director.image}
-                  alt={`${director.name}, ${director.role}`}
-                  fill
-                  sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                  className="object-cover"
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-x-0 bottom-0 h-1 bg-primary"
-                />
-              </div>
+            <p className="mt-7 text-xs font-bold uppercase tracking-[0.18em] text-secondary">
+              {activeDirector.role}
+            </p>
+            <h2
+              id="board-heading"
+              className="mt-3 max-w-xl text-[clamp(3.25rem,7vw,6.5rem)] uppercase text-charcoal"
+            >
+              {activeDirector.name}
+            </h2>
+            <p className="mt-6 max-w-xl text-sm leading-7 text-muted sm:text-base sm:leading-8">
+              {activeDirector.description}
+            </p>
+            <Link
+              href={activeDirector.href}
+              className="mt-6 inline-block border-b-2 border-primary pb-1 text-sm font-bold uppercase tracking-[0.14em] text-charcoal transition-colors duration-200 hover:text-primary"
+            >
+              See more
+            </Link>
 
-              <div className="flex gap-4 border-b border-charcoal/15 py-5">
-                <span className="pt-1 text-xs font-bold tracking-[0.16em] text-primary">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h3 className="text-2xl uppercase leading-none text-charcoal sm:text-3xl">
-                    {director.name}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-muted">
-                    {director.role}
-                  </p>
-                </div>
+            <div className="mt-9 flex items-center">
+              <div className="flex items-center gap-2" aria-label="Choose a director">
+                {directors.map((director, index) => (
+                  <button
+                    type="button"
+                    key={director.id}
+                    onClick={() => selectDirector(index)}
+                    aria-label={`Show ${director.name}`}
+                    aria-current={activeIndex === index ? "true" : undefined}
+                    className={`h-2.5 cursor-pointer rounded-full transition-all duration-300 ${
+                      activeIndex === index
+                        ? "w-8 bg-primary"
+                        : "w-2.5 bg-charcoal/20 hover:bg-charcoal/40"
+                    }`}
+                  />
+                ))}
               </div>
-            </article>
-          ))}
+            </div>
+          </div>
+
+          <div className="order-1 flex min-h-[20rem] items-center justify-center lg:order-2 lg:min-h-[34rem]">
+            <div className="relative h-[20rem] w-full max-w-[37rem] sm:h-[27rem] lg:h-[34rem]">
+              {directors.map((director, index) => {
+                const isActive = activeIndex === index;
+
+                return (
+                  <button
+                    type="button"
+                    key={director.id}
+                    onClick={() => selectDirector(index)}
+                    aria-label={`View ${director.name}, ${director.role}`}
+                    aria-pressed={isActive}
+                    className={`absolute top-1/2 cursor-pointer overflow-hidden rounded-md border-[0.45rem] bg-surface shadow-[0_24px_70px_rgba(34,34,34,0.16)] transition-[width,height,left,transform,opacity] duration-700 ease-out sm:border-[0.65rem] ${
+                      isActive
+                        ? "left-[6%] z-20 size-[17rem] -translate-y-1/2 border-surface opacity-100 sm:left-[4%] sm:size-[24rem] lg:size-[30rem]"
+                        : "left-[64%] z-10 size-[10rem] -translate-x-1/2 -translate-y-1/2 border-background opacity-65 hover:opacity-90 sm:left-[76%] sm:size-[15rem] lg:size-[18rem]"
+                    }`}
+                  >
+                    {director.image ? (
+                      <Image
+                        src={director.image}
+                        alt=""
+                        fill
+                        sizes="(max-width: 639px) 272px, (max-width: 1023px) 384px, 480px"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <span className="absolute inset-0 grid place-items-center bg-charcoal text-[clamp(3rem,8vw,7rem)] font-display uppercase text-surface">
+                        SA
+                      </span>
+                    )}
+                    <span className="sr-only">
+                      {director.name}, {director.role}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

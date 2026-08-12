@@ -17,7 +17,7 @@ export default function Home() {
       <ServicesShowcase />
       <MissionVisionValues />
       <BoardOfDirector/>
-      <ClientsPartners />
+      {/* <ClientsPartners /> */}
     </main>
   );
 }
