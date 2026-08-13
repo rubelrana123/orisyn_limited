@@ -6,10 +6,10 @@ import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About us", href: "#about" },
+  { label: "About us", href: "/about" },
   { label: "Business", href: "#business" },
   { label: "Gallery", href: "#gallery", submenu: true },
-  { label: "Contact us", href: "#contact" },
+  { label: "Contact us", href: "/contact" },
 ];
 
 type NavLabel = (typeof navItems)[number]["label"];
@@ -129,8 +129,8 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <a
-          href="#contact"
+        <Link
+          href="/contact"
           className="group ml-2 hidden items-center justify-center gap-2.5 overflow-hidden rounded-full border border-primary bg-primary px-7 py-3 text-xs font-semibold uppercase tracking-[0.06em] text-white shadow-sm transition-[background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary-light hover:bg-primary-light hover:shadow-[0_10px_24px_rgba(255,100,46,0.28)] active:translate-y-0 active:bg-primary lg:inline-flex"
         >
           Free consult
@@ -140,7 +140,7 @@ export default function Navbar() {
           >
             &#8599;
           </span>
-        </a>
+        </Link>
 
         <details className="group relative lg:hidden">
           <summary className="grid size-10 cursor-pointer list-none place-items-center rounded-full bg-charcoal text-white transition-colors duration-200 hover:bg-primary marker:content-none sm:size-11">
@@ -168,8 +168,8 @@ export default function Navbar() {
                 {item.label}
               </a>
             ))}
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="group relative mt-2 overflow-hidden rounded border border-primary bg-primary px-4 py-3 text-center text-sm font-semibold uppercase tracking-[0.04em] text-white transition-[background-color,border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-primary-light hover:bg-primary-light hover:shadow-[0_10px_24px_rgba(255,100,46,0.25)]"
             >
               <span className="relative z-10 inline-flex items-center gap-2">
@@ -181,7 +181,7 @@ export default function Navbar() {
                   &#8599;
                 </span>
               </span>
-            </a>
+            </Link>
           </nav>
         </details>
       </div>

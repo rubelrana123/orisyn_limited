@@ -2,17 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 const quickLinks = [
-  ["Home", "#home"],
-  ["About us", "#about"],
-  ["Our services", "#services"],
-  ["Projects", "#projects"],
+  ["Home", "/"],
+  ["About us", "/about"],
+  ["Contact us", "/contact"],
+  ["Our services", "/#services"],
+  ["Projects", "/#projects"],
 ] as const;
 
 const supportLinks = [
-  ["Civil engineering", "#services"],
-  ["EEE engineering", "#services"],
-  ["Mechanical engineering", "#services"],
-  ["Project engineering", "#services"],
+  ["Civil engineering", "/#services"],
+  ["EEE engineering", "/#services"],
+  ["Mechanical engineering", "/#services"],
+  ["Project engineering", "/#services"],
 ] as const;
 
 export default function Footer() {
@@ -31,15 +32,15 @@ export default function Footer() {
             </h2>
           </div>
 
-          <a
-            href="mailto:roottop.ltd@gmail.com?subject=Project consultation"
+          <Link
+            href="/contact"
             className="group inline-flex w-fit shrink-0 items-center gap-3 rounded-full border border-primary bg-primary px-6 py-3 text-xs font-bold uppercase tracking-[0.08em] text-white transition-[background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary-light hover:bg-primary-light hover:shadow-[0_10px_24px_rgba(255,100,46,0.28)] sm:px-7 sm:py-3.5"
           >
             Contact us
             <span className="grid size-7 place-items-center rounded-full bg-white text-charcoal transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">
               ↗
             </span>
-          </a>
+          </Link>
         </div>
 
         <div className="grid gap-12 py-12 sm:grid-cols-2 sm:py-14 lg:grid-cols-[1.35fr_0.8fr_1fr_1.2fr] lg:gap-10 lg:py-16">
