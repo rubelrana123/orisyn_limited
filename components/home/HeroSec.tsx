@@ -65,7 +65,7 @@ export default function HeroSec() {
       id="home"
       aria-label="Orisyn engineering services"
       aria-roledescription="carousel"
-      className="relative isolate h-[clamp(34rem,calc(100svh-4.5rem),48rem)] overflow-hidden bg-surface sm:h-[clamp(36rem,calc(100svh-5rem),50rem)] lg:h-[clamp(38rem,calc(100svh-5.5rem),52rem)]"
+      className="relative isolate h-[31rem] overflow-hidden bg-surface min-[480px]:h-[33rem] sm:h-[clamp(36rem,calc(100svh-5rem),50rem)] lg:h-[clamp(38rem,calc(100svh-5.5rem),52rem)]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -91,10 +91,10 @@ export default function HeroSec() {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.99)_0%,rgba(255,255,255,0.96)_58%,rgba(255,255,255,0.72)_78%,rgba(255,255,255,0.35)_100%)] sm:bg-[linear-gradient(90deg,rgba(255,255,255,0.99)_0%,rgba(255,255,255,0.94)_48%,rgba(255,255,255,0.3)_75%,transparent_100%)] lg:bg-[linear-gradient(90deg,rgba(255,255,255,0.99)_0%,rgba(255,255,255,0.96)_37%,rgba(255,255,255,0.5)_50%,rgba(255,255,255,0.08)_66%,transparent_100%)]" />
       <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white/55 to-transparent sm:hidden" />
 
-      <div className="container relative z-10 flex h-full items-center pb-20 pt-10 sm:pb-20 sm:pt-12 lg:pb-16 lg:pt-14">
+      <div className="container relative z-10 flex h-full items-center py-8 min-[480px]:py-9 sm:pb-20 sm:pt-12 lg:pb-16 lg:pt-14">
         <div className="w-full max-w-[35rem] pr-3 sm:max-w-[36rem] sm:pr-6 lg:ml-[1.5vw] lg:w-[46%] lg:max-w-[38rem] lg:pr-8 xl:ml-[2vw]">
           <div aria-live="polite" aria-atomic="true">
-            <div className="flex h-[11.5rem] items-end sm:h-[13.5rem] lg:h-[14.5rem]">
+            <div className="flex h-[9.75rem] items-end min-[480px]:h-[10.75rem] sm:h-[13.5rem] lg:h-[14.5rem]">
               <h1 className="max-w-[11ch] text-balance text-[clamp(3rem,12vw,4.25rem)] leading-[0.94] tracking-[-0.015em] uppercase text-charcoal sm:text-[clamp(3.6rem,7.4vw,4.8rem)] lg:text-[clamp(3.75rem,5vw,5.15rem)]">
                 {slides[active].title}
               </h1>
@@ -141,7 +141,7 @@ export default function HeroSec() {
         </div>
       </div>
 
-      <div className="container pointer-events-none absolute inset-x-0 bottom-5 z-20 flex justify-end sm:bottom-7 lg:bottom-8">
+      <div className="container pointer-events-none absolute inset-x-0 bottom-5 z-20 hidden justify-end sm:flex sm:bottom-7 lg:bottom-8">
         <div className="pointer-events-auto flex gap-2">
           <button
             type="button"
