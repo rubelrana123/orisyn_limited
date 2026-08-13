@@ -5,15 +5,15 @@ const quickLinks = [
   ["Home", "/"],
   ["About us", "/about"],
   ["Contact us", "/contact"],
-  ["Our services", "/#services"],
+  ["Our business", "/business"],
   ["Projects", "/#projects"],
 ] as const;
 
 const supportLinks = [
-  ["Civil engineering", "/#services"],
-  ["EEE engineering", "/#services"],
-  ["Mechanical engineering", "/#services"],
-  ["Project engineering", "/#services"],
+  ["Civil engineering", "/business/civil-construction"],
+  ["EEE engineering", "/business/electrical-electronic-engineering"],
+  ["Mechanical engineering", "/business/mechanical-engineering"],
+  ["Project engineering", "/business/project-engineering"],
 ] as const;
 
 export default function Footer() {
@@ -95,8 +95,8 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <nav aria-label="Engineering services">
-            <h3 className="text-xl uppercase text-white">Services</h3>
+          <nav aria-label="Business areas">
+            <h3 className="text-xl uppercase text-white">Business</h3>
             <ul className="mt-5 space-y-3 text-sm text-white/60">
               {supportLinks.map(([label, href]) => (
                 <li key={label}>

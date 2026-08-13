@@ -75,7 +75,7 @@ export default function ContactPage() {
               Have a project in mind?
             </h2>
             <p className="mt-6 max-w-xl text-sm leading-7 text-muted sm:text-base sm:leading-8">
-              Share a few details about your project, service requirement, or business opportunity. The Orisyn team will review your message and respond with a practical next step.
+              Share a few details about your project, business requirement, or partnership opportunity. The Orisyn team will review your message and respond with a practical next step.
             </p>
 
             <div className="mt-9 border-t border-charcoal/15 pt-7">
@@ -109,9 +109,9 @@ export default function ContactPage() {
                 <input type="tel" name="phone" autoComplete="tel" placeholder="Your phone number" className="mt-2.5 h-13 w-full rounded-lg border border-charcoal/15 bg-background px-4 text-sm font-normal normal-case tracking-normal text-charcoal outline-none transition-[border-color,box-shadow] placeholder:text-muted/60 focus:border-secondary focus:ring-4 focus:ring-secondary/10" />
               </label>
               <label className="block text-xs font-bold uppercase tracking-[0.1em] text-charcoal">
-                Service
-                <select name="service" defaultValue="" className="mt-2.5 h-13 w-full rounded-lg border border-charcoal/15 bg-background px-4 text-sm font-normal normal-case tracking-normal text-charcoal outline-none transition-[border-color,box-shadow] focus:border-secondary focus:ring-4 focus:ring-secondary/10">
-                  <option value="" disabled>Select a service</option>
+                Business area
+                <select name="businessArea" defaultValue="" className="mt-2.5 h-13 w-full rounded-lg border border-charcoal/15 bg-background px-4 text-sm font-normal normal-case tracking-normal text-charcoal outline-none transition-[border-color,box-shadow] focus:border-secondary focus:ring-4 focus:ring-secondary/10">
+                  <option value="" disabled>Select a business area</option>
                   <option>Civil Construction</option>
                   <option>Electrical &amp; Electronic Engineering</option>
                   <option>Mechanical Engineering</option>
