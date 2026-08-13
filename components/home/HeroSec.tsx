@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const slides = [
@@ -10,6 +11,7 @@ const slides = [
       "Practical, dependable infrastructure designed around your needs and built for lasting performance.",
     image: "/hero-civil.jpg",
     alt: "Civil engineers reviewing construction plans on site",
+    position: "object-[68%_center] sm:object-[62%_center] lg:object-center",
   },
   {
     title: "Smarter power safer systems",
@@ -17,6 +19,7 @@ const slides = [
       "Efficient electrical and electronic solutions that keep buildings, industries, and infrastructure running safely.",
     image: "/hero-eee.png",
     alt: "Electrical engineer inspecting an industrial control system",
+    position: "object-[64%_center] sm:object-[60%_center] lg:object-center",
   },
   {
     title: "One team for every project",
@@ -24,6 +27,7 @@ const slides = [
       "Civil, electrical, and project specialists working together to turn complex plans into dependable results.",
     image: "/hero-integrated-engineering.png",
     alt: "Multidisciplinary engineering team reviewing plans",
+    position: "object-[65%_center] sm:object-[60%_center] lg:object-center",
   },
   {
     title: "Global sourcing reliable supply",
@@ -31,6 +35,7 @@ const slides = [
       "Straightforward import, export, and sourcing support that delivers the right materials when your project needs them.",
     image: "/banner_construction.jpg",
     alt: "Construction supply team reviewing plans on site",
+    position: "object-[68%_center] sm:object-[62%_center] lg:object-center",
   },
 ] as const;
 
@@ -60,7 +65,7 @@ export default function HeroSec() {
       id="home"
       aria-label="Orisyn engineering services"
       aria-roledescription="carousel"
-      className="relative isolate h-[calc(100svh-7rem)] overflow-hidden bg-surface sm:h-[calc(100svh-7.5rem)] lg:h-[calc(100svh-8rem)]"
+      className="relative isolate h-[clamp(34rem,calc(100svh-4.5rem),48rem)] overflow-hidden bg-surface sm:h-[clamp(36rem,calc(100svh-5rem),50rem)] lg:h-[clamp(38rem,calc(100svh-5.5rem),52rem)]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -78,28 +83,29 @@ export default function HeroSec() {
             fill
             priority={index === 0}
             sizes="100vw"
-            className="object-cover object-[62%_center] sm:object-[58%_center] lg:object-center"
+            className={`object-cover ${slide.position}`}
           />
         </div>
       ))}
 
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.92)_42%,rgba(255,255,255,0.18)_72%,transparent_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.99)_0%,rgba(255,255,255,0.96)_58%,rgba(255,255,255,0.72)_78%,rgba(255,255,255,0.35)_100%)] sm:bg-[linear-gradient(90deg,rgba(255,255,255,0.99)_0%,rgba(255,255,255,0.94)_48%,rgba(255,255,255,0.3)_75%,transparent_100%)] lg:bg-[linear-gradient(90deg,rgba(255,255,255,0.99)_0%,rgba(255,255,255,0.96)_37%,rgba(255,255,255,0.5)_50%,rgba(255,255,255,0.08)_66%,transparent_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white/55 to-transparent sm:hidden" />
 
-      <div className="container relative z-10 flex h-full items-center py-10 sm:py-12 lg:py-14">
-        <div className="w-full pr-5 sm:pl-2 lg:ml-[2vw] lg:w-1/2 lg:pl-0 lg:pr-10">
+      <div className="container relative z-10 flex h-full items-center pb-20 pt-10 sm:pb-20 sm:pt-12 lg:pb-16 lg:pt-14">
+        <div className="w-full max-w-[35rem] pr-3 sm:max-w-[36rem] sm:pr-6 lg:ml-[1.5vw] lg:w-[46%] lg:max-w-[38rem] lg:pr-8 xl:ml-[2vw]">
           <div aria-live="polite" aria-atomic="true">
-            <h1 className="max-w-[12ch] text-[clamp(2.65rem,min(5.4vw,9vh),4.8rem)] leading-[0.98] tracking-[0] uppercase text-charcoal">
+            <h1 className="max-w-[11ch] text-balance text-[clamp(3rem,12vw,4.25rem)] leading-[0.94] tracking-[-0.015em] uppercase text-charcoal sm:text-[clamp(3.6rem,7.4vw,4.8rem)] lg:text-[clamp(3.75rem,5vw,5.15rem)]">
               {slides[active].title}
             </h1>
-            <p className="mt-5 max-w-[30rem] text-sm leading-[1.7] tracking-[0.01em] text-muted sm:text-base lg:mt-6 lg:text-base">
+            <p className="mt-5 max-w-[29rem] text-sm leading-7 text-muted sm:mt-6 sm:text-base sm:leading-8 lg:mt-7">
               {slides[active].description}
             </p>
           </div>
 
-          <div className="mt-6 flex w-fit flex-col items-start lg:mt-7">
-            <a
-              href="#contact"
-              className="group inline-flex items-center gap-3 rounded-full border border-primary bg-primary px-5 py-2.5 text-[0.7rem] font-bold uppercase tracking-[0.08em] text-white shadow-sm transition-[background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary-light hover:bg-primary-light hover:shadow-[0_10px_24px_rgba(255,100,46,0.28)] sm:px-6 sm:py-3 sm:text-xs"
+          <div className="mt-7 flex w-fit flex-col items-start sm:mt-8 lg:mt-9">
+            <Link
+              href="/contact"
+              className="group inline-flex min-h-12 items-center gap-3 rounded-full border border-primary bg-primary px-5 py-2.5 text-[0.7rem] font-bold uppercase tracking-[0.08em] text-white shadow-sm transition-[background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary-light hover:bg-primary-light hover:shadow-[0_10px_24px_rgba(255,100,46,0.28)] sm:px-6 sm:text-xs"
             >
               Start a project
               <span
@@ -108,9 +114,9 @@ export default function HeroSec() {
               >
                 &#8599;
               </span>
-            </a>
+            </Link>
 
-            <div className="mt-3 flex h-4 items-center gap-2" aria-label="Choose a slide">
+            <div className="mt-4 flex h-5 items-center gap-1.5" aria-label="Choose a slide">
               {slides.map((slide, index) => (
                 <button
                   key={slide.title}
@@ -118,10 +124,10 @@ export default function HeroSec() {
                   onClick={() => setActive(index)}
                   aria-label={`Show slide ${index + 1}`}
                   aria-current={active === index ? "true" : undefined}
-                  className="group grid h-4 w-8 place-items-center"
+                  className="group grid h-5 w-8 cursor-pointer place-items-center"
                 >
                   <span
-                    className={`h-0.5 bg-charcoal transition-[width,opacity] duration-300 ${active === index ? "w-8 opacity-100" : "w-5 opacity-35 group-hover:w-8 group-hover:opacity-70"}`}
+                    className={`h-0.5 rounded-full transition-[width,background-color,opacity] duration-300 ${active === index ? "w-8 bg-primary opacity-100" : "w-5 bg-secondary opacity-45 group-hover:w-8 group-hover:bg-primary-light group-hover:opacity-100"}`}
                     aria-hidden="true"
                   />
                 </button>
