@@ -11,15 +11,38 @@ const people = {
       "Leading Orisyn Limited with a practical vision for dependable engineering, responsible growth, and lasting value for every client.",
     details:
       "His leadership keeps the company focused on quality, accountability, and practical solutions that serve clients for the long term.",
+    experience: null,
+    expertise: null,
+    credentials: null,
+    linkedin: null,
   },
   "sabbir-ahmed": {
-    name: "Sabbir Ahmed",
-    role: "Director",
+    name: "Lt. Col. Sabbir Ahmed",
+    role: "Director, Orisyn Limited",
     image: "/director/sabbirAhmed.jpeg",
     introduction:
-      "Supporting the company’s strategic direction with a focus on strong partnerships, disciplined delivery, and sustainable progress.",
+      "Lt. Col. Sabbir Ahmed, BGBM, PBGM, psc (Retd.), is a seasoned leadership and administration professional with more than 22 years of distinguished service in the Bangladesh Army.",
     details:
-      "He contributes to business planning and delivery oversight, helping teams maintain clear priorities and dependable standards.",
+      "As a Director of Orisyn Limited, he contributes strategic direction, disciplined governance, operational insight, and extensive institutional experience. His leadership supports responsible growth, strong stakeholder relationships, effective project oversight, and dependable business delivery.",
+    experience: [
+      "Currently serving as Chief Executive Officer of Dhaka Club, overseeing administration, finance, logistics, security, compliance, employee welfare, and services for more than 4,500 members and 450 staff.",
+      "Commanded an 850-member Border Guard Bangladesh battalion, leading operations, personnel management, training, security, logistics, and stakeholder coordination.",
+      "Served in United Nations peacekeeping missions in the Democratic Republic of the Congo and Mali, including leadership of approximately 180 personnel as a Company Commander.",
+      "Developed and coordinated security plans for key installations, VVIP movements, national events, and complex operational environments.",
+    ],
+    expertise: [
+      "Leadership & Team Management",
+      "Operations & Project Management",
+      "Strategic Administration",
+      "Security & Crisis Management",
+      "Human Resource Management",
+      "Government & Stakeholder Engagement",
+      "Communication & Coordination",
+      "Organizational Development",
+    ],
+    credentials:
+      "BGBM, PBGM, psc (Retd.) · Staff College graduate, Defence Services Command and Staff College · Master of Science in Military Studies",
+    linkedin: "https://www.linkedin.com/in/ltcol-sabbir-ahmed/",
   },
 } as const;
 
@@ -39,23 +62,23 @@ export default async function PersonPage({
   const profile = people[person as PersonSlug];
 
   return (
-    <main className="min-h-screen bg-background py-16 sm:py-20 lg:py-28">
+    <main className="min-h-screen bg-background py-14 sm:py-20 lg:py-24">
       <div className="container">
         <Link
-          href="/#leadership"
+          href="/about#leadership"
           className="text-xs font-bold uppercase tracking-[0.18em] text-primary transition-colors hover:text-charcoal sm:text-sm"
         >
           Back to leadership
         </Link>
 
-        <article className="mt-10 grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <div className="relative aspect-square overflow-hidden rounded-md bg-surface shadow-[0_24px_70px_rgba(34,34,34,0.12)]">
+        <article className="mt-9 grid items-start gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16 xl:gap-20">
+          <div className="relative aspect-[4/5] max-w-xl overflow-hidden rounded-2xl border-[0.6rem] border-white bg-surface shadow-[0_24px_70px_rgba(34,34,34,0.12)] lg:sticky lg:top-28">
             <Image
               src={profile.image}
               alt={`${profile.name}, ${profile.role}`}
               fill
               sizes="(max-width: 1023px) 100vw, 40vw"
-              className="object-cover"
+              className="object-cover object-center"
             />
           </div>
 
@@ -78,6 +101,55 @@ export default async function PersonPage({
             <p className="mt-4 max-w-2xl text-base leading-8 text-muted">
               {profile.details}
             </p>
+
+            {profile.credentials && (
+              <div className="mt-7 rounded-xl border-l-4 border-secondary bg-surface px-5 py-4 shadow-sm">
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">
+                  Credentials
+                </p>
+                <p className="mt-2 text-sm leading-6 text-muted">
+                  {profile.credentials}
+                </p>
+              </div>
+            )}
+
+            {profile.experience && (
+              <section className="mt-10 border-t border-charcoal/15 pt-8">
+                <h2 className="text-3xl uppercase text-charcoal sm:text-4xl">
+                  Professional experience
+                </h2>
+                <ul className="mt-5 space-y-4">
+                  {profile.experience.map((item) => (
+                    <li key={item} className="flex gap-3 text-sm leading-7 text-muted sm:text-base">
+                      <span className="mt-2.5 size-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {profile.expertise && (
+              <section className="mt-10 border-t border-charcoal/15 pt-8">
+                <h2 className="text-3xl uppercase text-charcoal sm:text-4xl">
+                  Core expertise
+                </h2>
+                <ul className="mt-5 flex flex-wrap gap-2.5">
+                  {profile.expertise.map((item) => (
+                    <li key={item} className="rounded-full border border-charcoal/10 bg-surface px-4 py-2 text-xs font-semibold text-charcoal shadow-sm">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {profile.linkedin && (
+              <a href={profile.linkedin} target="_blank" rel="noreferrer" className="group mt-9 inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3 text-xs font-bold uppercase tracking-[0.08em] text-white transition-[background-color,box-shadow,transform] hover:-translate-y-0.5 hover:bg-primary-light hover:shadow-[0_10px_24px_rgba(255,100,46,0.25)]">
+                View LinkedIn profile
+                <span className="grid size-7 place-items-center rounded-full bg-white text-charcoal transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">↗</span>
+              </a>
+            )}
           </div>
         </article>
       </div>

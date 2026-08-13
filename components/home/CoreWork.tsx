@@ -2,25 +2,25 @@ const principles = [
   {
     title: "Safety First",
     description:
-      "Responsible planning and disciplined site practices keep people, assets, and every stage of delivery protected.",
+      "Careful planning and disciplined practices protect people, assets, and delivery.",
     icon: "shield",
   },
   {
     title: "Quality Assurance",
     description:
-      "Clear reviews and consistent quality controls help us deliver dependable work across every project phase.",
+      "Consistent reviews and quality controls create dependable results at every stage.",
     icon: "quality",
   },
   {
     title: "Engineering Depth",
     description:
-      "Civil, electrical, mechanical, and project expertise come together to solve complex challenges efficiently.",
+      "Integrated expertise turns complex technical challenges into practical solutions.",
     icon: "pencil",
   },
   {
     title: "On-Time Completion",
     description:
-      "Practical schedules, close coordination, and proactive decisions keep delivery moving with confidence.",
+      "Clear schedules and proactive coordination keep every project moving forward.",
     icon: "clock",
   },
 ] as const;
@@ -63,7 +63,7 @@ function PrincipleIcon({ type }: { type: (typeof principles)[number]["icon"] }) 
 
 export default function CoreWork() {
   return (
-    <section className="relative isolate overflow-hidden bg-surface py-16 sm:py-20 lg:py-24">
+    <section className="relative isolate overflow-hidden bg-surface py-14 sm:py-18 lg:py-22">
       <div className="absolute -right-32 -top-48 size-[34rem] rounded-full border border-secondary/10" />
       <div className="absolute -right-14 -top-36 size-[25rem] rounded-full border border-secondary/10" />
       <div className="absolute -bottom-64 -left-36 size-[30rem] rounded-full border border-primary/10" />
@@ -71,35 +71,33 @@ export default function CoreWork() {
       <span className="absolute right-[6%] top-32 size-1.5 rounded-full bg-primary/25" />
 
       <div className="container relative">
-
         <div className="mx-auto max-w-3xl text-center">
-        <p className="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-primary sm:text-sm">
-          <span className="h-px w-7 bg-primary" aria-hidden="true" />
-          Our core work
-          <span className="h-px w-7 bg-primary" aria-hidden="true" />
-        </p>
-          <h2 className="mt-5 text-[clamp(2.75rem,5vw,5rem)] uppercase leading-[0.96] text-charcoal">
-            {/* Mission, vision &amp; values
-             */}
-              Built on engineering rigor and operational discipline
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-muted sm:text-base">
-            Four principles guide every solution and project we deliver.
+          <p className="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-primary sm:text-sm">
+            <span className="h-px w-7 bg-primary" aria-hidden="true" />
+            Our principles
+            <span className="h-px w-7 bg-primary" aria-hidden="true" />
           </p>
-          <span className="mx-auto mt-6 block h-0.5 w-12 bg-primary" aria-hidden="true" />
-        </div>        
+          <h2 className="mx-auto mt-4 max-w-2xl text-[clamp(2.5rem,4.5vw,4.5rem)] uppercase leading-[0.96] text-charcoal">
+            How we deliver better
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-muted sm:text-base">
+            Four clear principles guide our work from planning to completion.
+          </p>
+          <span className="mx-auto mt-5 block h-0.5 w-12 bg-secondary" aria-hidden="true" />
+        </div>
 
-        <div className="mt-10 grid items-stretch gap-5 sm:mt-12 sm:grid-cols-2 lg:mt-14 xl:grid-cols-4">
+        <div className="mt-9 grid items-stretch gap-4 sm:mt-11 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-5">
           {principles.map((principle, index) => (
             <article
               key={principle.title}
-              className="group relative flex min-h-64 flex-col items-start rounded-md border border-charcoal/10 bg-background p-6 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_18px_45px_rgba(34,34,34,0.08)] sm:min-h-72 sm:p-7"
+              className="group relative flex min-h-56 flex-col items-start overflow-hidden rounded-xl border border-charcoal/10 bg-background p-5 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_18px_45px_rgba(34,34,34,0.08)] sm:min-h-60 sm:p-6"
             >
+              <span className={`absolute inset-x-0 top-0 h-1 ${index % 2 === 0 ? "bg-primary" : "bg-secondary"}`} aria-hidden="true" />
               <span
                 className={`absolute right-3 top-3 size-1.5 rounded-full ${index % 2 === 0 ? "bg-secondary/25" : "bg-primary/25"}`}
                 aria-hidden="true"
               />
-              <span className="grid size-12 shrink-0 place-items-center rounded-md bg-charcoal text-white transition-[background-color,transform] duration-300 group-hover:scale-105 group-hover:bg-primary">
+              <span className={`grid size-11 shrink-0 place-items-center rounded-lg text-white transition-transform duration-300 group-hover:scale-105 ${index % 2 === 0 ? "bg-primary" : "bg-secondary"}`}>
                 <svg
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -111,8 +109,8 @@ export default function CoreWork() {
                 </svg>
               </span>
 
-              <div className="mt-6">
-                <h3 className="font-sans text-lg font-bold uppercase leading-snug text-charcoal transition-colors duration-200 group-hover:text-primary sm:text-xl">
+              <div className="mt-5">
+                <h3 className="text-xl uppercase leading-none text-charcoal transition-colors duration-200 group-hover:text-primary sm:text-2xl">
                   {principle.title}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-muted">
