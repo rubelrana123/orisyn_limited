@@ -6,36 +6,36 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    title: "Civil engineering built to last",
+    title: "Civil solutions built to last",
     description:
-      "Practical, dependable infrastructure designed around your needs and built for lasting performance.",
-    image: "/hero-civil.jpg",
+      "Safe, durable construction and infrastructure planned for reliable performance and lasting value.",
+    image: "/hero/civil-construction-v2.png",
     alt: "Civil engineers reviewing construction plans on site",
-    position: "object-[68%_center] sm:object-[62%_center] lg:object-center",
+    position: "object-center",
   },
   {
-    title: "Smarter power safer systems",
+    title: "Reliable power. Safer systems.",
     description:
-      "Efficient electrical and electronic solutions that keep buildings, industries, and infrastructure running safely.",
-    image: "/hero-eee.png",
+      "Integrated electrical and electronic systems designed for safe, efficient, uninterrupted operation.",
+    image: "/hero/electrical-engineering-v2.png",
     alt: "Electrical engineer inspecting an industrial control system",
-    position: "object-[64%_center] sm:object-[60%_center] lg:object-center",
+    position: "object-center",
   },
   {
-    title: "One team for every project",
+    title: "One team. Complete coordination.",
     description:
-      "Civil, electrical, and project specialists working together to turn complex plans into dependable results.",
-    image: "/hero-integrated-engineering.png",
+      "Multidisciplinary planning and project support that keeps people, resources, and delivery aligned.",
+    image: "/hero/project-engineering-v2.png",
     alt: "Multidisciplinary engineering team reviewing plans",
-    position: "object-[65%_center] sm:object-[60%_center] lg:object-center",
+    position: "object-center",
   },
   {
-    title: "Global sourcing reliable supply",
+    title: "Global sourcing. Reliable supply.",
     description:
-      "Straightforward import, export, and sourcing support that delivers the right materials when your project needs them.",
-    image: "/banner_construction.jpg",
+      "Quality materials and equipment sourced, coordinated, and delivered for every project requirement.",
+    image: "/hero/global-supply-v2.png",
     alt: "Construction supply team reviewing plans on site",
-    position: "object-[68%_center] sm:object-[62%_center] lg:object-center",
+    position: "object-center",
   },
 ] as const;
 
@@ -94,12 +94,16 @@ export default function HeroSec() {
       <div className="container relative z-10 flex h-full items-center pb-20 pt-10 sm:pb-20 sm:pt-12 lg:pb-16 lg:pt-14">
         <div className="w-full max-w-[35rem] pr-3 sm:max-w-[36rem] sm:pr-6 lg:ml-[1.5vw] lg:w-[46%] lg:max-w-[38rem] lg:pr-8 xl:ml-[2vw]">
           <div aria-live="polite" aria-atomic="true">
-            <h1 className="max-w-[11ch] text-balance text-[clamp(3rem,12vw,4.25rem)] leading-[0.94] tracking-[-0.015em] uppercase text-charcoal sm:text-[clamp(3.6rem,7.4vw,4.8rem)] lg:text-[clamp(3.75rem,5vw,5.15rem)]">
-              {slides[active].title}
-            </h1>
-            <p className="mt-5 max-w-[29rem] text-sm leading-7 text-muted sm:mt-6 sm:text-base sm:leading-8 lg:mt-7">
-              {slides[active].description}
-            </p>
+            <div className="flex h-[11.5rem] items-end sm:h-[13.5rem] lg:h-[14.5rem]">
+              <h1 className="max-w-[11ch] text-balance text-[clamp(3rem,12vw,4.25rem)] leading-[0.94] tracking-[-0.015em] uppercase text-charcoal sm:text-[clamp(3.6rem,7.4vw,4.8rem)] lg:text-[clamp(3.75rem,5vw,5.15rem)]">
+                {slides[active].title}
+              </h1>
+            </div>
+            <div className="mt-5 h-14 sm:mt-6 sm:h-16 lg:mt-7">
+              <p className="max-w-[29rem] text-sm leading-7 text-muted sm:text-base sm:leading-8">
+                {slides[active].description}
+              </p>
+            </div>
           </div>
 
           <div className="mt-7 flex w-fit flex-col items-start sm:mt-8 lg:mt-9">
