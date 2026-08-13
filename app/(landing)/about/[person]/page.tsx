@@ -18,12 +18,12 @@ const people = {
   },
   "sabbir-ahmed": {
     name: "Lt. Col. Sabbir Ahmed",
-    role: "Director, Orisyn Limited",
+    role: "Chairman, Orisyn Limited",
     image: "/director/sabbirAhmed.jpeg",
     introduction:
       "Lt. Col. Sabbir Ahmed, BGBM, PBGM, psc (Retd.), is a seasoned leadership and administration professional with more than 22 years of distinguished service in the Bangladesh Army.",
     details:
-      "As a Director of Orisyn Limited, he contributes strategic direction, disciplined governance, operational insight, and extensive institutional experience. His leadership supports responsible growth, strong stakeholder relationships, effective project oversight, and dependable business delivery.",
+      "As Chairman of Orisyn Limited, he provides strategic direction, disciplined governance, operational insight, and extensive institutional experience. His leadership supports responsible growth, strong stakeholder relationships, effective project oversight, and dependable business delivery.",
     experience: [
       "Currently serving as Chief Executive Officer of Dhaka Club, overseeing administration, finance, logistics, security, compliance, employee welfare, and services for more than 4,500 members and 450 staff.",
       "Commanded an 850-member Border Guard Bangladesh battalion, leading operations, personnel management, training, security, logistics, and stakeholder coordination.",
@@ -66,8 +66,14 @@ export default async function PersonPage({
       <div className="container">
         <Link
           href="/about#leadership"
-          className="text-xs font-bold uppercase tracking-[0.18em] text-primary transition-colors hover:text-charcoal sm:text-sm"
+          className="group inline-flex min-h-11 items-center gap-3 rounded-full border border-primary/25 bg-surface py-2 pl-2 pr-5 text-xs font-bold uppercase tracking-[0.12em] text-charcoal shadow-[0_5px_16px_rgba(34,34,34,0.08)] transition-[border-color,background-color,box-shadow,transform,color] duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-white hover:shadow-[0_10px_24px_rgba(255,100,46,0.24)] sm:min-h-12 sm:pr-6"
         >
+          <span
+            className="grid size-7 shrink-0 place-items-center rounded-full bg-primary text-white transition-[background-color,transform,color] duration-200 group-hover:-translate-x-0.5 group-hover:bg-white group-hover:text-primary sm:size-8"
+            aria-hidden="true"
+          >
+            ←
+          </span>
           Back to leadership
         </Link>
 

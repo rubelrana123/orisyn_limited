@@ -22,15 +22,15 @@ const directors = [
     id: 2,
     name: "Sabbir Ahmed",
     imageName: "Lt. Col. (Retd.) Sabbir Ahmed",
-    role: "Director",
+    role: "Chairman",
     image: "/director/sabbirAhmed.jpeg",
     imagePosition: "52% center",
     href: "/about/sabbir-ahmed",
 
     description:
-      "Supporting the company’s strategic direction with a focus on strong partnerships, disciplined delivery, and sustainable progress.",
+      "Guiding the company’s strategic direction with disciplined governance, strong partnerships, and a clear focus on sustainable progress.",
     details:
-      "He contributes to business planning and delivery oversight, helping teams maintain clear priorities and dependable standards.",
+      "He provides leadership in governance, business planning, and organizational oversight, helping Orisyn maintain clear priorities and dependable standards.",
   },
 ] as const;
 
