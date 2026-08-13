@@ -30,16 +30,6 @@ const people = {
       "Served in United Nations peacekeeping missions in the Democratic Republic of the Congo and Mali, including leadership of approximately 180 personnel as a Company Commander.",
       "Developed and coordinated security plans for key installations, VVIP movements, national events, and complex operational environments.",
     ],
-    expertise: [
-      "Leadership & Team Management",
-      "Operations & Project Management",
-      "Strategic Administration",
-      "Security & Crisis Management",
-      "Human Resource Management",
-      "Government & Stakeholder Engagement",
-      "Communication & Coordination",
-      "Organizational Development",
-    ],
     credentials:
       "BGBM, PBGM, psc (Retd.) · Staff College graduate, Defence Services Command and Staff College · Master of Science in Military Studies",
     linkedin: "https://www.linkedin.com/in/ltcol-sabbir-ahmed/",
@@ -128,21 +118,6 @@ export default async function PersonPage({
                   {profile.experience.map((item) => (
                     <li key={item} className="flex gap-3 text-sm leading-7 text-muted sm:text-base">
                       <span className="mt-2.5 size-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
-
-            {profile.expertise && (
-              <section className="mt-10 border-t border-charcoal/15 pt-8">
-                <h2 className="text-3xl uppercase text-charcoal sm:text-4xl">
-                  Core expertise
-                </h2>
-                <ul className="mt-5 flex flex-wrap gap-2.5">
-                  {profile.expertise.map((item) => (
-                    <li key={item} className="rounded-full border border-charcoal/10 bg-surface px-4 py-2 text-xs font-semibold text-charcoal shadow-sm">
                       {item}
                     </li>
                   ))}
