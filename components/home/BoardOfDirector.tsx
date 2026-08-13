@@ -7,9 +7,11 @@ import { useEffect, useState } from "react";
 const directors = [
   {
     id: 1,
-    name: "Md Mehedi Hasan",
+    name: "Mehedi Hasan",
+    imageName: "Mehedi Hasan",
     role: "Managing Director",
     image: "/director/md-mehedi-hasan-white.png",
+    imagePosition: "center center",
     href: "/about/md-mehedi-hasan",
     description:
       "Leading Orisyn Limited with a practical vision for dependable engineering, responsible growth, and lasting value for every client.",
@@ -19,8 +21,10 @@ const directors = [
   {
     id: 2,
     name: "Sabbir Ahmed",
+    imageName: "Lt. Col. (Retd.) Sabbir Ahmed",
     role: "Director",
     image: "/director/sabbirAhmed.jpeg",
+    imagePosition: "52% center",
     href: "/about/sabbir-ahmed",
 
     description:
@@ -82,9 +86,11 @@ export default function BoardOfDirector() {
             </p>
             <h2
               id="board-heading"
-              className="mt-3 max-w-xl text-[clamp(3.25rem,7vw,6.5rem)] uppercase text-charcoal"
+              className="mt-3 max-w-xl uppercase text-charcoal"
             >
-              {activeDirector.name}
+              <span className="block text-[clamp(3.25rem,7vw,6.5rem)] leading-[0.94]">
+                {activeDirector.name}
+              </span>
             </h2>
             <p className="mt-6 max-w-xl text-sm leading-7 text-muted sm:text-base sm:leading-8">
               {activeDirector.description}
@@ -116,8 +122,12 @@ export default function BoardOfDirector() {
             </div>
           </div>
 
-          <div className="order-1 flex min-h-[20rem] items-center justify-center lg:order-2 lg:min-h-[34rem]">
-            <div className="relative h-[20rem] w-full max-w-[37rem] sm:h-[27rem] lg:h-[34rem]">
+          <div className="order-1 flex min-h-[22rem] items-center justify-center lg:order-2 lg:min-h-[36rem]">
+            <div className="relative h-[22rem] w-full max-w-[39rem] sm:h-[30rem] lg:h-[36rem]">
+              <div
+                aria-hidden="true"
+                className="absolute left-[12%] top-1/2 h-[20rem] w-[16rem] -translate-y-[46%] rotate-3 rounded-[1.75rem] bg-primary/10 sm:left-[11%] sm:h-[28rem] sm:w-[22.4rem] lg:h-[34rem] lg:w-[27.2rem]"
+              />
               {directors.map((director, index) => {
                 const isActive = activeIndex === index;
 
@@ -128,10 +138,10 @@ export default function BoardOfDirector() {
                     onClick={() => selectDirector(index)}
                     aria-label={`View ${director.name}, ${director.role}`}
                     aria-pressed={isActive}
-                    className={`absolute top-1/2 cursor-pointer overflow-hidden rounded-md border-[0.45rem] bg-surface shadow-[0_24px_70px_rgba(34,34,34,0.16)] transition-[width,height,left,transform,opacity] duration-700 ease-out sm:border-[0.65rem] ${
+                    className={`group absolute top-1/2 cursor-pointer overflow-hidden rounded-[1.35rem] border-[0.45rem] bg-surface shadow-[0_24px_70px_rgba(34,34,34,0.14)] transition-[width,height,left,transform,opacity] duration-700 ease-out sm:rounded-[1.75rem] sm:border-[0.65rem] ${
                       isActive
-                        ? "left-[6%] z-20 size-[17rem] -translate-y-1/2 border-surface opacity-100 sm:left-[4%] sm:size-[24rem] lg:size-[30rem]"
-                        : "left-[64%] z-10 size-[10rem] -translate-x-1/2 -translate-y-1/2 border-background opacity-65 hover:opacity-90 sm:left-[76%] sm:size-[15rem] lg:size-[18rem]"
+                        ? "left-[8%] z-20 h-[21rem] w-[16.8rem] -translate-y-1/2 border-white opacity-100 sm:left-[7%] sm:h-[29rem] sm:w-[23.2rem] lg:h-[35rem] lg:w-[28rem]"
+                        : "left-[73%] z-10 h-[12.5rem] w-[10rem] -translate-x-1/2 -translate-y-1/2 border-white/90 opacity-55 grayscale-[35%] hover:opacity-90 hover:grayscale-0 sm:left-[79%] sm:h-[18rem] sm:w-[14.4rem] lg:h-[22rem] lg:w-[17.6rem]"
                     }`}
                   >
                     {director.image ? (
@@ -140,7 +150,8 @@ export default function BoardOfDirector() {
                         alt=""
                         fill
                         sizes="(max-width: 639px) 272px, (max-width: 1023px) 384px, 480px"
-                        className="object-cover"
+                        className="bg-white object-cover transition-transform duration-700 group-hover:scale-[1.015]"
+                        style={{ objectPosition: director.imagePosition }}
                       />
                     ) : (
                       <span className="absolute inset-0 grid place-items-center bg-charcoal text-[clamp(3rem,8vw,7rem)] font-display uppercase text-surface">
@@ -149,6 +160,21 @@ export default function BoardOfDirector() {
                     )}
                     <span className="sr-only">
                       {director.name}, {director.role}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className={`absolute inset-x-4 bottom-4 rounded-xl bg-charcoal/90 px-4 py-3 text-left text-white shadow-lg backdrop-blur-sm transition-all duration-500 sm:inset-x-5 sm:bottom-5 ${
+                        isActive
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-4 opacity-0"
+                      }`}
+                    >
+                      <span className="block text-[0.65rem] font-bold uppercase tracking-[0.18em] text-primary-light sm:text-xs">
+                        {director.role}
+                      </span>
+                      <span className="mt-0.5 block text-sm font-semibold sm:text-base">
+                        {director.imageName}
+                      </span>
                     </span>
                   </button>
                 );
