@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -16,7 +17,11 @@ type NavLabel = (typeof navItems)[number]["label"];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeItem, setActiveItem] = useState<NavLabel>("Home");
+  const pathname = usePathname();
+  const activeItem: NavLabel =
+    navItems.find((it) =>
+      it.href === "/" ? pathname === "/" : pathname?.startsWith(it.href),
+    )?.label ?? "Home";
 
   useEffect(() => {
     const updateHeader = () => setIsScrolled(window.scrollY > 24);
@@ -117,15 +122,14 @@ export default function Navbar() {
           className="ml-auto hidden items-center gap-8 lg:flex"
         >
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
-              onClick={() => setActiveItem(item.label)}
               aria-current={activeItem === item.label ? "page" : undefined}
               className={`relative py-3 text-xs font-semibold uppercase tracking-[0.04em] transition-colors duration-200 after:absolute after:bottom-1.5 after:left-0 after:h-0.5 after:w-full after:origin-left after:bg-primary after:transition-transform after:duration-200 ${activeItem === item.label ? "text-primary after:scale-x-100" : "text-charcoal/90 after:scale-x-0 hover:text-primary hover:after:scale-x-100"}`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -158,15 +162,14 @@ export default function Navbar() {
             aria-label="Mobile navigation"
           >
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
-                onClick={() => setActiveItem(item.label)}
                 aria-current={activeItem === item.label ? "page" : undefined}
                 className={`rounded px-4 py-3 text-sm font-semibold uppercase transition-[background-color,color,padding] duration-200 hover:bg-background hover:pl-5 hover:text-primary ${activeItem === item.label ? "bg-primary/10 text-primary" : "text-charcoal"}`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <Link
               href="/contact"
