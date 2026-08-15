@@ -8,12 +8,20 @@ const people = {
     role: "Managing Director",
     image: "/director/md-mehedi-hasan-white.png",
     introduction:
-      "Leading Orisyn Limited with a practical vision for dependable engineering, responsible growth, and lasting value for every client.",
+      "Md Mehedi Hasan is an adaptable, results-oriented Managing Director with more than 12 years of experience in service development, project delivery, tender sales, and business development.",
     details:
-      "His leadership keeps the company focused on quality, accountability, and practical solutions that serve clients for the long term.",
-    experience: null,
+      "He develops strong professional relationships with clients and service partners, combining market insight, cost-conscious planning, customer support, and practical conflict resolution to deliver dependable outcomes.",
+    experience: [
+      "Leads project development, tender sales, direct purchase and direct procurement work, and correspondence with local and foreign principals.",
+      "Manages tender information collection, tender preparation and submission, negotiation, and project execution with a focus on accurate costing, cost control, and customer satisfaction.",
+      "Has supported product and brand development, customer support, and project delivery for dredgers, generators, solar power systems, security items, CCTV, and batteries.",
+      "Brings hands-on experience in supply chain management, including procurement, distribution, delivery, commercial work, import, export, L/C, and banking operations.",
+      "Has worked with government and non-government organizations including Bangladesh Bank, Bangladesh Police, Bangladesh Army, PWD, EDCL, Bangladesh Railway, CMSD, DGDP, Bangladesh Atomic Energy, STEP, BTEB, and Grameenphone.",
+      "Experienced in direct purchase management with Bangladesh Army and Bangladesh Navy, as well as coordination with local and international manufacturers.",
+    ],
     expertise: null,
-    credentials: null,
+    credentials:
+      "Managing Director, RootTOP Limited · Owner, M/S Satellite Enterprise · Owner, KhamarBari Corporation",
     linkedin: null,
   },
   "sabbir-ahmed": {

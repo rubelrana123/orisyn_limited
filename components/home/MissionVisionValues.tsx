@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SectionSubheading from "@/components/common/SectionSubheading";
 
 const values = [
   {
@@ -56,11 +57,7 @@ export default function MissionVisionValues() {
       <div className="absolute left-1/2 top-0 h-px w-1/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
-        <p className="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-primary sm:text-sm">
-          <span className="h-px w-7 bg-primary" aria-hidden="true" />
-          Our purpose
-          <span className="h-px w-7 bg-primary" aria-hidden="true" />
-        </p>
+        <SectionSubheading align="center">Our purpose</SectionSubheading>
           <h2 className="mt-5 text-[clamp(2.75rem,5vw,5rem)] uppercase leading-[0.96] text-charcoal">
             Mission, vision &amp; values
           </h2>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SectionSubheading from "@/components/common/SectionSubheading";
 import { services } from "@/lib/services";
 
 export { services } from "@/lib/services";
@@ -10,10 +11,7 @@ export default function ServicesShowcase() {
       <div className="container">
         <div className="flex flex-col gap-7 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-3xl">
-            <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-primary sm:text-sm">
-              <span className="h-px w-7 bg-primary" aria-hidden="true" />
-              Our business
-            </p>
+            <SectionSubheading>Our business</SectionSubheading>
             <h2 className="mt-5 text-[clamp(2.75rem,5vw,5rem)] uppercase leading-[0.96] text-charcoal">
               Engineering value through every solution
             </h2>

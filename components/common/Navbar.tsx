@@ -8,7 +8,7 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "About us", href: "/about" },
   { label: "Business", href: "/business" },
-  { label: "Gallery", href: "#gallery", submenu: true },
+  { label: "Career", href: "/career" },
   { label: "Contact us", href: "/contact" },
 ];
 
@@ -95,7 +95,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className="container flex h-[72px] items-center justify-between gap-5 sm:h-20 lg:h-[88px] lg:gap-8">
+      <div className="container flex h-18 items-center justify-between gap-5 sm:h-20 lg:h-[88px] lg:gap-8">
         <Link
           href="/"
           className="group flex self-stretch shrink-0 items-center pr-3 sm:pr-6 lg:min-w-[250px] lg:border-r lg:border-charcoal/10 lg:pr-10"
@@ -108,7 +108,7 @@ export default function Navbar() {
             height={382}
             priority
             sizes="(max-width: 640px) 170px, 220px"
-            className="h-auto w-[170px] transition-[transform,filter] duration-300 group-hover:scale-[1.025] group-hover:brightness-105 sm:w-[205px] lg:w-[220px]"
+            className="h-auto w-42.5 transition-[transform,filter] duration-300 group-hover:scale-[1.025] group-hover:brightness-105 sm:w-[205px] lg:w-[220px]"
           />
         </Link>
 

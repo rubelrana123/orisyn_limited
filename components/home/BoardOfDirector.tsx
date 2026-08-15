@@ -14,9 +14,9 @@ const directors = [
     imagePosition: "center center",
     href: "/about/md-mehedi-hasan",
     description:
-      "Leading Orisyn Limited with a practical vision for dependable engineering, responsible growth, and lasting value for every client.",
+      "A results-oriented leader with 12+ years of experience in project development, tender sales, supply chain, and client partnerships.",
     details:
-      "His leadership keeps the company focused on quality, accountability, and practical solutions that serve clients for the long term.",
+      "He combines market insight, practical planning, and customer-focused execution to deliver dependable business outcomes.",
   },
   {
     id: 2,

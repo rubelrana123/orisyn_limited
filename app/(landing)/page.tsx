@@ -1,4 +1,3 @@
-import ClientsPartners from "@/components/home/ClientsPartners";
 import CompanyOverview from "@/components/home/CompanyOverview";
 import CoreWork from "@/components/home/CoreWork";
 import HeroSec from "@/components/home/HeroSec";

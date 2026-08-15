@@ -6,6 +6,7 @@ const quickLinks = [
   ["About us", "/about"],
   ["Contact us", "/contact"],
   ["Our business", "/business"],
+  ["Career", "/career"],
   ["Projects", "/#projects"],
 ] as const;
 
@@ -37,7 +38,10 @@ export default function Footer() {
             className="group inline-flex w-fit shrink-0 items-center gap-3 rounded-full border border-primary bg-primary px-6 py-3 text-xs font-bold uppercase tracking-[0.08em] text-white transition-[background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary-light hover:bg-primary-light hover:shadow-[0_10px_24px_rgba(255,100,46,0.28)] sm:px-7 sm:py-3.5"
           >
             Contact us
-            <span className="grid size-7 place-items-center rounded-full bg-white text-charcoal transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">
+            <span
+              className="grid size-7 place-items-center rounded-full bg-white text-charcoal transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              aria-hidden="true"
+            >
               ↗
             </span>
           </Link>
@@ -87,7 +91,10 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-white/60">
               {quickLinks.map(([label, href]) => (
                 <li key={label}>
-                  <a href={href} className="transition-colors hover:text-primary">
+                  <a
+                    href={href}
+                    className="transition-colors hover:text-primary"
+                  >
                     {label}
                   </a>
                 </li>
@@ -100,7 +107,10 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-white/60">
               {supportLinks.map(([label, href]) => (
                 <li key={label}>
-                  <a href={href} className="transition-colors hover:text-primary">
+                  <a
+                    href={href}
+                    className="transition-colors hover:text-primary"
+                  >
                     {label}
                   </a>
                 </li>
@@ -111,16 +121,28 @@ export default function Footer() {
           <div>
             <h3 className="text-xl uppercase text-white">Get in touch</h3>
             <address className="mt-5 space-y-4 text-sm not-italic leading-6 text-white/60">
-              <a href="tel:+8801746644478" className="flex gap-3 transition-colors hover:text-primary">
-                <span aria-hidden="true" className="text-primary">●</span>
+              <a
+                href="tel:+8801746644478"
+                className="flex gap-3 transition-colors hover:text-primary"
+              >
+                <span aria-hidden="true" className="text-primary">
+                  ●
+                </span>
                 +8801746644478
               </a>
-              <a href="mailto:roottop.ltd@gmail.com" className="flex gap-3 transition-colors hover:text-primary">
-                <span aria-hidden="true" className="text-primary">●</span>
-                roottop.ltd@gmail.com
+              <a
+                href="mailto:orisynlimited@gmail.com"
+                className="flex gap-3 transition-colors hover:text-primary"
+              >
+                <span aria-hidden="true" className="text-primary">
+                  ●
+                </span>
+                orisynlimited@gmail.com
               </a>
               <p className="flex gap-3">
-                <span aria-hidden="true" className="text-primary">●</span>
+                <span aria-hidden="true" className="text-primary">
+                  ●
+                </span>
                 Dhaka, Bangladesh
               </p>
             </address>
@@ -128,10 +150,16 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-3 border-t border-white/10 py-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Orisyn Limited. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Orisyn Limited. All rights reserved.
+          </p>
           <div className="flex gap-5">
-            <a href="#" className="transition-colors hover:text-white">Privacy policy</a>
-            <a href="#" className="transition-colors hover:text-white">Terms of use</a>
+            <a href="#" className="transition-colors hover:text-white">
+              Privacy policy
+            </a>
+            <a href="#" className="transition-colors hover:text-white">
+              Terms of use
+            </a>
           </div>
         </div>
       </div>
