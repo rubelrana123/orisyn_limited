@@ -59,7 +59,7 @@ export default function CompanyOverview() {
   return (
     <section id="about" className="bg-background py-16 sm:py-20 lg:py-24">
       <div className="container grid items-stretch gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 xl:gap-24">
-        <div className="relative isolate grid min-h-80 place-items-center overflow-hidden rounded-lg border border-charcoal/10 bg-surface px-8 py-14 shadow-[0_24px_70px_rgba(34,34,34,0.08)] sm:min-h-[26rem] lg:min-h-full">
+        <div className="relative isolate hidden min-h-80 place-items-center overflow-hidden rounded-lg border border-charcoal/10 bg-surface px-8 py-14 shadow-[0_24px_70px_rgba(34,34,34,0.08)] sm:min-h-[26rem] lg:grid lg:min-h-full">
           <div className="absolute -left-20 -top-20 size-64 rounded-full bg-primary/10 blur-3xl" />
           <div className="absolute -bottom-24 -right-20 size-72 rounded-full bg-secondary/10 blur-3xl" />
           <svg
@@ -143,7 +143,7 @@ export default function CompanyOverview() {
             </a>
             <a
               href="#"
-              className="border-b border-charcoal/40 pb-1 text-xs font-bold uppercase tracking-[0.06em] text-charcoal transition-colors duration-200 hover:border-primary hover:text-primary"
+              className="hidden border-b border-charcoal/40 pb-1 text-xs font-bold uppercase tracking-[0.06em] text-charcoal transition-colors duration-200 hover:border-primary hover:text-primary lg:inline-block"
             >
               Certifications
             </a>

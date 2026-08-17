@@ -132,12 +132,10 @@ export default function BoardOfDirector() {
                 const isActive = activeIndex === index;
 
                 return (
-                  <button
-                    type="button"
+                  <Link
+                    href={director.href}
                     key={director.id}
-                    onClick={() => selectDirector(index)}
-                    aria-label={`View ${director.name}, ${director.role}`}
-                    aria-pressed={isActive}
+                    aria-label={`View details for ${director.name}, ${director.role}`}
                     className={`group absolute top-1/2 cursor-pointer overflow-hidden rounded-[1.35rem] border-[0.45rem] bg-surface shadow-[0_24px_70px_rgba(34,34,34,0.14)] transition-[width,height,left,transform,opacity] duration-700 ease-out sm:rounded-[1.75rem] sm:border-[0.65rem] ${
                       isActive
                         ? "left-[8%] z-20 h-[21rem] w-[16.8rem] -translate-y-1/2 border-white opacity-100 sm:left-[7%] sm:h-[29rem] sm:w-[23.2rem] lg:h-[35rem] lg:w-[28rem]"
@@ -176,7 +174,7 @@ export default function BoardOfDirector() {
                         {director.imageName}
                       </span>
                     </span>
-                  </button>
+                  </Link>
                 );
               })}
             </div>
