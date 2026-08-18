@@ -10,7 +10,7 @@ export const siteConfig = {
     "House #263 (2nd Floor), Road #19, Mohakhali DOHS, Dhaka Cantonment, Dhaka 1206, Bangladesh",
 };
 
-const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.orisynltd.com";
 export const siteUrl = new URL(configuredUrl).origin;
 
 export function absoluteUrl(path = "/") {
