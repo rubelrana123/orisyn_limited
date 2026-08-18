@@ -85,7 +85,7 @@ export default function ContactForm() {
             <option value="" disabled>
               Select a business area
             </option>
-            <option>Civil Construction</option>
+            <option>Civil Engineering</option>
             <option>Electrical &amp; Electronic Engineering</option>
             <option>Mechanical Engineering</option>
             <option>Project Engineering</option>

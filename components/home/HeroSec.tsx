@@ -9,7 +9,7 @@ const slides = [
     title: "Civil solutions built to last",
     description:
       "Safe, durable construction and infrastructure planned for reliable performance and lasting value.",
-    image: "/hero/civil-construction-v2.png",
+    image: "/hero/civil-engineering-v2.png",
     alt: "Civil engineers reviewing construction plans on site",
     position: "object-center",
   },

@@ -11,7 +11,7 @@ const quickLinks = [
 ] as const;
 
 const supportLinks = [
-  ["Civil engineering", "/business/civil-construction"],
+  ["Civil engineering", "/business/civil-engineering"],
   ["EEE engineering", "/business/electrical-electronic-engineering"],
   ["Mechanical engineering", "/business/mechanical-engineering"],
   ["Project engineering", "/business/project-engineering"],
