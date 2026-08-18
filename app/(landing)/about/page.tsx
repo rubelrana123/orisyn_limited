@@ -3,12 +3,14 @@ import Image from "next/image";
 import BoardOfDirector from "@/components/home/BoardOfDirector";
 import InnerPageHero from "@/components/common/InnerPageHero";
 import MissionVisionValues from "@/components/home/MissionVisionValues";
+import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "About Us | Orisyn Limited",
   description:
     "Learn about Orisyn Limited, our integrated engineering expertise, leadership, mission, vision, and values.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

@@ -3,11 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import InnerPageHero from "@/components/common/InnerPageHero";
 import { services } from "@/lib/services";
+import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "Our Business | Orisyn Limited",
   description: "Explore Orisyn Limited's integrated engineering, construction, supply, and investment business areas.",
-};
+  path: "/business",
+});
 
 export default function BusinessPage() {
   return (

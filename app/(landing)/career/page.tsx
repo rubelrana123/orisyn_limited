@@ -1,17 +1,25 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import InnerPageHero from "@/components/common/InnerPageHero";
 import { careerBenefits, careerData } from "@/lib/career";
+import { createMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createMetadata({
+  title: "Careers | Orisyn Limited",
+  description: "Explore current career opportunities and build your future with the Orisyn Limited team in Dhaka, Bangladesh.",
+  path: "/career",
+});
 
 export default function CareerPage() {
   return (
     <main>
       <InnerPageHero
-        eyebrow="Careers at RootTOP"
+        eyebrow="Careers at Orisyn"
         title="Make your mark"
         description="Join a team that turns ambitious ideas into purposeful spaces, dependable projects, and stronger communities."
         image="/career-hero.png"
-        imageAlt="RootTOP team collaborating in a design studio"
+        imageAlt="Orisyn team collaborating in a design studio"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Career" }]}
       />
 
@@ -45,7 +53,7 @@ export default function CareerPage() {
 
       <section className="bg-charcoal py-16 text-white sm:py-20 lg:py-28">
         <div className="container">
-          <div className="max-w-2xl"><p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-light">Life at RootTOP</p><h2 className="mt-4 text-[clamp(3rem,6vw,6rem)] uppercase">More than a job.</h2><p className="mt-5 text-sm leading-7 text-white/65 sm:text-base sm:leading-8">We create room for people to learn, contribute, and do work they can be proud of.</p></div>
+          <div className="max-w-2xl"><p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-light">Life at Orisyn</p><h2 className="mt-4 text-[clamp(3rem,6vw,6rem)] uppercase">More than a job.</h2><p className="mt-5 text-sm leading-7 text-white/65 sm:text-base sm:leading-8">We create room for people to learn, contribute, and do work they can be proud of.</p></div>
           <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
             {careerBenefits.map((benefit, index) => <div key={benefit} className="flex min-h-32 items-end bg-charcoal p-5 sm:p-6"><span className="mr-4 grid size-9 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold">{String(index + 1).padStart(2, "0")}</span><p className="text-lg font-medium leading-6 text-white">{benefit}</p></div>)}
           </div>

@@ -3,7 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import InnerPageHero from "@/components/common/InnerPageHero";
+import JsonLd from "@/components/seo/JsonLd";
 import { getService, services } from "@/lib/services";
+import { absoluteUrl, breadcrumbJsonLd, createMetadata, siteUrl } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map(({ slug }) => ({ slug }));
@@ -13,7 +15,12 @@ export async function generateMetadata({ params }: PageProps<"/business/[slug]">
   const { slug } = await params;
   const service = getService(slug);
   if (!service) return {};
-  return { title: `${service.title} | Orisyn Limited`, description: service.shortDescription };
+  return createMetadata({
+    title: `${service.title} Services in Bangladesh | Orisyn Limited`,
+    description: service.description,
+    path: `/business/${service.slug}`,
+    image: service.image,
+  });
 }
 
 export default async function BusinessDetailPage({ params }: PageProps<"/business/[slug]">) {
@@ -26,6 +33,31 @@ export default async function BusinessDetailPage({ params }: PageProps<"/busines
 
   return (
     <main>
+      <JsonLd
+        data={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": `${absoluteUrl(`/business/${service.slug}`)}#service`,
+            name: service.title,
+            description: service.description,
+            url: absoluteUrl(`/business/${service.slug}`),
+            image: absoluteUrl(service.image),
+            areaServed: { "@type": "Country", name: "Bangladesh" },
+            provider: { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "Orisyn Limited" },
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: `${service.title} capabilities`,
+              itemListElement: service.items.map((item) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: item } })),
+            },
+          },
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Business", path: "/business" },
+            { name: service.title, path: `/business/${service.slug}` },
+          ]),
+        ]}
+      />
       <InnerPageHero eyebrow="Our business" title={service.title} description={service.shortDescription} image={service.image} imageAlt={service.imageAlt} breadcrumbs={[{ label: "Home", href: "/" }, { label: "Business", href: "/business" }, { label: service.title }]} />
 
       <section className="relative overflow-hidden bg-background py-16 sm:py-20 lg:py-28">
@@ -45,6 +77,19 @@ export default async function BusinessDetailPage({ params }: PageProps<"/busines
                 ))}
               </ul>
             </div>
+
+            <section className="mt-10 border-t border-charcoal/15 pt-8">
+              <h2 className="text-3xl uppercase text-charcoal sm:text-4xl">How we deliver</h2>
+              <ol className="mt-6 grid gap-4 sm:grid-cols-2">
+                {["Understand requirements", "Plan the right solution", "Coordinate safe delivery", "Review quality and handover"].map((step, index) => (
+                  <li key={step} className="rounded-xl border border-charcoal/10 bg-surface p-5">
+                    <span className="text-xs font-bold text-primary">0{index + 1}</span>
+                    <h3 className="mt-2 text-lg font-semibold text-charcoal">{step}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted">Our team keeps scope, stakeholders, quality, and practical project outcomes aligned at every stage.</p>
+                  </li>
+                ))}
+              </ol>
+            </section>
           </div>
 
           <aside className="lg:sticky lg:top-28">

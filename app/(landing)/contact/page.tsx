@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import InnerPageHero from "@/components/common/InnerPageHero";
+import ContactForm from "@/components/contact/ContactForm";
+import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "Contact Us | Orisyn Limited",
   description:
     "Contact Orisyn Limited to discuss engineering, construction, supply, and investment requirements.",
-};
+  path: "/contact",
+});
 
 const contactDetails = [
   {
@@ -108,94 +111,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <form
-            action="mailto:orisynlimited@gmail.com"
-            method="post"
-            encType="text/plain"
-            className="rounded-2xl border border-charcoal/10 bg-surface p-5 shadow-[0_24px_70px_rgba(34,34,34,0.09)] sm:p-8 lg:p-10"
-          >
-            <div className="grid gap-5 sm:grid-cols-2">
-              <label className="block text-xs font-bold uppercase tracking-[0.1em] text-charcoal">
-                Full name <span className="text-primary">*</span>
-                <input
-                  required
-                  name="name"
-                  autoComplete="name"
-                  placeholder="Your full name"
-                  className="mt-2.5 h-13 w-full rounded-lg border border-charcoal/15 bg-background px-4 text-sm font-normal normal-case tracking-normal text-charcoal outline-none transition-[border-color,box-shadow] placeholder:text-muted/60 focus:border-secondary focus:ring-4 focus:ring-secondary/10"
-                />
-              </label>
-              <label className="block text-xs font-bold uppercase tracking-[0.1em] text-charcoal">
-                Email address <span className="text-primary">*</span>
-                <input
-                  required
-                  type="email"
-                  name="email"
-                  autoComplete="email"
-                  placeholder="you@example.com"
-                  className="mt-2.5 h-13 w-full rounded-lg border border-charcoal/15 bg-background px-4 text-sm font-normal normal-case tracking-normal text-charcoal outline-none transition-[border-color,box-shadow] placeholder:text-muted/60 focus:border-secondary focus:ring-4 focus:ring-secondary/10"
-                />
-              </label>
-              <label className="block text-xs font-bold uppercase tracking-[0.1em] text-charcoal">
-                Phone number
-                <input
-                  type="tel"
-                  name="phone"
-                  autoComplete="tel"
-                  placeholder="Your phone number"
-                  className="mt-2.5 h-13 w-full rounded-lg border border-charcoal/15 bg-background px-4 text-sm font-normal normal-case tracking-normal text-charcoal outline-none transition-[border-color,box-shadow] placeholder:text-muted/60 focus:border-secondary focus:ring-4 focus:ring-secondary/10"
-                />
-              </label>
-              <label className="block text-xs font-bold uppercase tracking-[0.1em] text-charcoal">
-                Business area
-                <select
-                  name="businessArea"
-                  defaultValue=""
-                  className="mt-2.5 h-13 w-full rounded-lg border border-charcoal/15 bg-background px-4 text-sm font-normal normal-case tracking-normal text-charcoal outline-none transition-[border-color,box-shadow] focus:border-secondary focus:ring-4 focus:ring-secondary/10"
-                >
-                  <option value="" disabled>
-                    Select a business area
-                  </option>
-                  <option>Civil Construction</option>
-                  <option>Electrical &amp; Electronic Engineering</option>
-                  <option>Mechanical Engineering</option>
-                  <option>Project Engineering</option>
-                  <option>Import, Export &amp; Supply</option>
-                  <option>Investment</option>
-                </select>
-              </label>
-            </div>
-
-            <label className="mt-5 block text-xs font-bold uppercase tracking-[0.1em] text-charcoal">
-              Your message <span className="text-primary">*</span>
-              <textarea
-                required
-                name="message"
-                rows={6}
-                placeholder="Tell us about your project, timeline, and requirements..."
-                className="mt-2.5 w-full resize-y rounded-lg border border-charcoal/15 bg-background px-4 py-3 text-sm font-normal normal-case leading-6 tracking-normal text-charcoal outline-none transition-[border-color,box-shadow] placeholder:text-muted/60 focus:border-secondary focus:ring-4 focus:ring-secondary/10"
-              />
-            </label>
-
-            <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="max-w-sm text-xs leading-5 text-muted">
-                Required fields are marked with an asterisk. Submitting opens
-                your email application.
-              </p>
-              <button
-                type="submit"
-                className="group inline-flex w-full shrink-0 cursor-pointer items-center justify-center gap-3 rounded-full bg-primary px-6 py-3.5 text-xs font-bold uppercase tracking-[0.08em] text-white transition-[background-color,box-shadow,transform] hover:-translate-y-0.5 hover:bg-primary-light hover:shadow-[0_10px_24px_rgba(255,100,46,0.28)] sm:w-auto"
-              >
-                Send message
-                <span
-                  className="grid size-7 place-items-center rounded-full bg-white text-charcoal transition-transform group-hover:translate-x-1"
-                  aria-hidden="true"
-                >
-                  →
-                </span>
-              </button>
-            </div>
-          </form>
+          <ContactForm />
         </div>
       </section>
 
