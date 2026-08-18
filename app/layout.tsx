@@ -16,6 +16,9 @@ const anton = Anton({
 export const metadata: Metadata = {
   title: "Orisyn Limited",
   description: "Orisyn Limited — quality you can trust.",
+  verification: {
+    google: "PoWxIikPTRzagO-wfybyhd_ro5YmDb6pLw_F8E2Az9M",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
