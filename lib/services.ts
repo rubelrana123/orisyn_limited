@@ -5,7 +5,7 @@ export const services = [
     title: "Civil Engineering",
     shortDescription: "Structures and site works built for safety, durability, and long-term value.",
     description: "Orisyn Limited provides practical civil engineering and construction solutions for buildings, infrastructure, and site-development projects. Every project is planned around structural reliability, efficient execution, safety, and lasting performance.",
-    image: "/services/civil-construction.png",
+    image: "/services/civil-engineering.png",
     imageAlt: "Construction team coordinating work on site",
     position: "object-center",
     items: ["Building Construction", "Structural Engineering", "Roads & Site Infrastructure", "Site Development", "Construction Planning", "Project Execution Support"],
