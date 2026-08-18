@@ -30,7 +30,7 @@ export default function CareerPage() {
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Current opportunities</p>
               <h2 className="mt-4 text-[clamp(3rem,6vw,6rem)] uppercase text-charcoal">Find your next role.</h2>
             </div>
-            <p className="max-w-sm text-sm leading-7 text-muted sm:text-base">Explore open positions and build a career with a team that values curiosity, ownership, and craft.</p>
+            {/* <p className="max-w-sm text-sm leading-7 text-muted sm:text-base">Explore open positions and build a career with a team that values curiosity, ownership, and craft.</p> */}
           </div>
           <div className="mt-9 grid gap-6 lg:grid-cols-2">
             {careerData.map((job) => (
