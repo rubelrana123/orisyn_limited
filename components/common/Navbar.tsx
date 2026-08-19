@@ -103,7 +103,7 @@ export default function Navbar() {
       <div className="container flex h-18 items-center justify-between gap-5 sm:h-20 lg:h-[88px] lg:gap-8">
         <Link
           href="/"
-          className="group flex self-stretch shrink-0 items-center pr-3 sm:pr-6 lg:min-w-[250px] lg:border-r lg:border-charcoal/10 lg:pr-10"
+          className="group flex self-stretch shrink-0 items-center pr-3 sm:pr-6 lg:min-w-[250px]  lg:pr-10"
           aria-label="Orisyn home"
         >
           <Image
